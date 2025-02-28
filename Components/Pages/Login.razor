@@ -1,0 +1,31 @@
+﻿@page "/login"
+<PageTitle>Login</PageTitle>
+<h3>Iniciar Sesión</h3> 
+
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+	<div>
+		<!-- IMG LOGO -->
+		<img />
+	</div>
+	<div>
+		<!-- LOGIN MANAGEMENT -->
+		<h3>Nombre usuario</h3>
+		<input />
+		<h3>Contrase&ntilde;a</h3>
+		<input />
+		<button class="loginButton">Iniciar sesi&oacute;</button>
+		<a><u>He olvidado mi contrase&ntilde;a</u></a>
+		<hr />
+		<h3>Crear cuenta</h3>
+		<NavLink href="register"><button class="signupButton">Crear cuenta</button></NavLink>
+		<br/>
+		<h3>Iniciar cuenta con:</h3>
+		<button><i class="bi bi-google"></i></button>
+	</div>
+</div>
+@code {
+	string usuario = "";
+	string contrasena = "";
+
+
+}

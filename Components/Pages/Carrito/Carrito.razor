@@ -1,0 +1,33 @@
+﻿@page "/carrito"
+@using VSENDS.Models
+
+<PageTitle>VSENDS</PageTitle>
+
+<h2>Mi cesta</h2>
+
+<div>
+	@foreach (var producto in productos)
+	{
+		<div>
+			<div>
+				<h2>@producto.Nombre</h2>
+			</div>
+			<div>
+				<h2>@producto.Precio</h2>
+				<img src="@producto.ImagenUrl" />
+			</div>
+			
+		</div>
+	}
+	<div>
+		<h2>Resumen</h2>
+		<h3>Articulos</h3>
+
+		<h2>Total: @total</h2>
+	</div>
+</div>
+
+@code {
+	private static List<Producto> productos = new();
+	decimal total = productos.Sum(p => p.Precio);
+}
