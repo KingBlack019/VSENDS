@@ -1,4 +1,5 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 @using VSENDS.Services
 
 <PageTitle>Home</PageTitle>
@@ -18,7 +19,7 @@
 	<div class="col-md-3 text-end mr-4">
 
 		<NavLink href="login"><button class="me-1 iconButton"><i class="bi bi-person-circle" /></button> </NavLink>
-		<button class="ms-1 iconButton"><i class="bi bi-cart3" /></button>
+		<NavLink href="carrito"><button class="ms-1 iconButton"><i class="bi bi-cart3" /></button></NavLink>
 	</div>
 </header>
 <div class="body">
@@ -33,7 +34,7 @@
 		</div>
 		<!-- select end part -->
 		
-		<div class="d-flex justify-content-end">
+		<div class="d-flex justify-content-end mb-3">
 			<select class="text-start" @bind="filterOption">
 			@foreach (var option in filterOptions)
 			{
@@ -47,7 +48,7 @@
 				{
 					<a class="w-15 mb-5" href="/">
 					<div class="container position-relative m-3"> <!-- CONTAINS 4 ROWS, 1 IMG, 2 TEXT 3 PRIZE 4 RATE-->
-					<img src="@producto.ImagenUrl" class="img-fluid" style="width: 20vh;" />
+					<img src="@producto.ImagenUrl" class="img-fluid" style="width: 20vh; height: 28vh; object-fit: cover;" />
 					</div>
 					<div class="position-relative bottom-0 start-0 p-2">
 					<p>@producto.Nombre</p>
@@ -60,7 +61,8 @@
 </div>
 
 @code{
-	private string filterOption = "";
+	private string filterOption = "Ordenar por";
+
 	private string searchText = "";
 	List<Producto> productos = ProductoService.ObtenerProductos();
 	List<string> filterOptions = new() 
